@@ -118,7 +118,7 @@ formulario.addEventListener("submit", (e)=> {
         let idManga = `manga-ID-${idProducto}`
         manga.setAttribute("id", idManga)
         manga.setAttribute("class", `d-inline-flex p-2`)
-        listador.appendChild(manga)
+        listador.prepend(manga)
         manga.innerHTML =  `<div class="card" style="width: 18rem;">
         <img src="${imagen.value}" class="card-img-top" alt="...">
         <div class="card-body">

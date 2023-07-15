@@ -13,7 +13,7 @@ if(typeof(productosTienda) != 'undefined' && productosTienda != null){
     let item = document.createElement (`div`)
     item.setAttribute ("class", "contenedor-item")
     productosTienda.appendChild(item)
-    item.innerHTML = `<div class="card" style="width: 18rem;">
+    item.innerHTML = `<div class="card card-tienda" style="width: 18rem;">
     <img src="${imagen}" class="card-img-top" alt="...">
     <div class="card-body">
         <h5 class="precio">$${precio}</h5>

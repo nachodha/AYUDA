@@ -2,18 +2,43 @@
     background-color: red;
     padding: 10px;
 }
+.container {
+    background-color: aqua;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.listador-admin {
+    background-color: aqua;
+    display: flex;
+    flex-wrap: wrap;
+}
+.form {
+    display:flex
+}
+
 .productos-tienda {
     background-color: bisque;
 }
 .input-producto {
     text-transform: uppercase;
 }
+.card-tienda {
+    margin: 7px;
+}
 .card-text {
     text-transform: uppercase;
 }
 .link-tienda {
+    display: flex;
+    padding: 3px;
+    margin: 3px;
     background-color: rgb(87, 205, 241);
 }
 .link-imagenes {
+    display: flex;
+    padding: 3px;
+    margin: 3px;
     background-color: rgb(236, 132, 3);
 }
