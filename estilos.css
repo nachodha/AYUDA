@@ -5,3 +5,15 @@
 .productos-tienda {
     background-color: bisque;
 }
+.input-producto {
+    text-transform: uppercase;
+}
+.card-text {
+    text-transform: uppercase;
+}
+.link-tienda {
+    background-color: rgb(87, 205, 241);
+}
+.link-imagenes {
+    background-color: rgb(236, 132, 3);
+}

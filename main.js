@@ -11,10 +11,12 @@ let listador = document.getElementById(`listador`)
 let formulario = document.getElementById(`formulario`)
 let actualizar = document.getElementById(`boton-actualizar`)
 let productosTienda = document.getElementById(`productos-tienda`)
+let borrarTienda = document.getElementById(`boton-reinicio`)
+
 
 //en este array se van a guardar los objetos. Cada objeto es un producto.
-const arrayProductos = []
-
+let arrayProductos = []
+console.log(Swal)
 //constructor de objetos
  class productos {
     constructor (nombre, precio, imagen, productoId) {
@@ -24,26 +26,77 @@ const arrayProductos = []
         this.productoId = productoId
     }
  }
+ if(typeof(productosTienda) != 'undefined' && productosTienda != null){
+    console.log('Existe en la pagina');
+} else{
+    console.log('No existe en la pagina');
+}
 
+function varciarArray (array){
+    console.log(`se esta borrando el array`+ array)
+    return array.length = 0
+}
  //ESTE EVENTO ALMACENA LOS PRODUCTOS QUE VAN A IR A LA TIENDA EN EL STORAGE. PERO SI YA EXISTE UN ARRAY GUARDADO, LO RECUPERA, LO FUSIONA CON EL QUE SE ESTA CREANDO Y LO DEVUELVE AL STORAGE
-actualizar.addEventListener(`click`,()=>{
-    if(localStorage.getItem(`productos`)=== null){
-    localStorage.setItem(`productos`, JSON.stringify(arrayProductos))}
+    borrarTienda.addEventListener (`click`,()=>{
+        Swal.fire({
+            title: 'Estas segur@?',
+            text: "Estas por borrar todos los productos de la tienda.",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, borralos'
+          }).then((result) => {
+            if (result.isConfirmed) {
+                localStorage.clear()
+                Swal.fire(
+                'Productos borrados!',
+                'La tienda ahora esta vacia',
+                'success'
+              )
+            }
+          })
+    })
+    actualizar.addEventListener(`click`,()=>{
+    if (arrayProductos.length == 0){
+        Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'No hay productos agregados',
+            showConfirmButton: false,
+            timer: 1500
+          })
+    } else if(localStorage.getItem(`productos`)=== null){
+    localStorage.setItem(`productos`, JSON.stringify(arrayProductos),
+    console.log(arrayProductos))
+    Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Tienda actualizada',
+            showConfirmButton: false,
+            timer: 1500
+      })
+    }
     else {
     const arrayRecuperado = JSON.parse(localStorage.getItem('productos'))
-    console.log(arrayRecuperado) 
     const arrayNuevo = arrayProductos.concat(arrayRecuperado)
     localStorage.setItem(`productos`, JSON.stringify(arrayNuevo))
-    arrayProductos.forEach((el)=>{
+    console.log(arrayProductos)
+    /*arrayProductos.forEach((el)=>{
     let i = arrayProductos.indexOf(el)
     arrayProductos.splice(i,1)
-    })}})
+    })*/Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Tienda actualizada',
+        showConfirmButton: false,
+        timer: 1500
+      })}
+    while (listador.firstChild) {
+        listador.removeChild(listador.lastChild);
+      }
+    varciarArray(arrayProductos)})
     
-       
-        
-
-
-
  //formulario que va a proporcionar los datos para cada objeto mediante un evento submit.
 formulario.addEventListener("submit", (e)=> {
     e.preventDefault();
@@ -52,7 +105,13 @@ formulario.addEventListener("submit", (e)=> {
     let imagen = document.getElementById(`imagen`)
 //aca tengo que poner un verificador de entradas con alerta
     if (producto.value == "" || precio.value == "" || imagen.value == ""){
-        alert (`FALTA AGREGAR ALGUN VALOR`)
+        Swal.fire ({
+            title: `Producto no cargado`,
+            text: `Te falto ingresar algun dato`,
+            icon: `error`,
+            showConfirmButton: false,
+            timer: 1500
+        })
 //Si los datos son correctos, primeramente se interviene el doc creando un div. Este div va a contener una card de bootstrap donde muestre datos del objeto. Es una preview de como se va a ver el producto en la tienda. Es importante que el objeto aun no esta creado, solo se capturan los datos necesarios.
     } else {
         let manga = document.createElement(`div`)   
