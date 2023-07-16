@@ -32,7 +32,7 @@ body {
 .searchBtn {
     width: 90%;
     height: 35px;
-    margin: 10px;
+    margin: 15px;
     text-align: calc(1px);
     background: linear-gradient(to right, #ff105f, #ffad06);
     border-radius: 30px;
@@ -40,6 +40,10 @@ body {
     outline: none;
     color: #fff;
     cursor: pointer;
+    box-shadow: 0 0 1px rgb(238, 77, 77), 0 0 5px rgb(238, 77, 77); 
+}
+.searchBtn:hover {
+    box-shadow: 0 0 1px rgb(238, 77, 77), 0 0 5px rgb(238, 77, 77), 0 0 8px rgb(238, 77, 77), 0 0 15px rgb(238, 77, 77), 0 0 30px rgb(238, 77, 77);
 }
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
@@ -48,7 +52,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .nuevos-inputs {
-    margin-left: 20px;
+    margin-left: 140px;
     display: flex;
     height: 100%;
     width: 20%;
@@ -57,7 +61,7 @@ input[type=number]::-webkit-outer-spin-button {
     flex-direction: column;
     gap: 10px;
     padding-top: 10px;
-    background-color: rgba(248, 28, 28, 0.699);
+    background: linear-gradient(#e63232, #ffffff31);
 }
 .inputbox {
     position: relative;
@@ -87,7 +91,7 @@ input[type=number]::-webkit-outer-spin-button {
 .inputbox input:valid ~ span,
 .inputbox input:focus ~ span
 {
-    color: #00dfc4;
+    color: #ff9838;
     transform: translateX(10px) translateY(-7px);
     font-size: 0.65em;
     padding: 0 10px;
@@ -98,16 +102,28 @@ input[type=number]::-webkit-outer-spin-button {
 .container {
     width: 200px;
     height: 100vh;
-    background-color: rgba(10, 10, 10, 0.349);
+    background: linear-gradient(#e63232, #ffffff31);
     padding: 10px;
     display: flex;
     
 }
 
-
+.color-overlay {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+}
 
 .padre{
     display: flex;
+    position: relative;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    color: rgb(255, 255, 255);
+    background: url(spider.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 /*.container {
     background-color: rgb(231, 24, 24);
@@ -124,6 +140,11 @@ input[type=number]::-webkit-outer-spin-button {
 
 .input-producto {
     text-transform: uppercase;
+    box-shadow: 0 0 1px rgb(238, 77, 77), 0 0 5px rgb(238, 77, 77); 
+    border-radius: 30px;
+}
+.input-producto:hover {
+    box-shadow: 0 0 1px rgb(238, 77, 77), 0 0 5px rgb(238, 77, 77), 0 0 8px rgb(238, 77, 77), 0 0 15px rgb(238, 77, 77), 0 0 30px rgb(238, 77, 77);
 }
 .card {
     margin: 7px;
