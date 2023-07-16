@@ -2,6 +2,20 @@
     background-color: red;
     padding: 10px;
 }
+.input-producto  {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.searchBtn {
+    width: 207px;
+    margin-top: 3px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.btn-primary {
+    margin-left: 10px;
+    margin-right: 10px;
+}
 .container {
     background-color: aqua;
     display: flex;

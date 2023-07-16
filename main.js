@@ -12,6 +12,34 @@ let formulario = document.getElementById(`formulario`)
 let actualizar = document.getElementById(`boton-actualizar`)
 let productosTienda = document.getElementById(`productos-tienda`)
 let borrarTienda = document.getElementById(`boton-reinicio`)
+let buscadorImagen = document.getElementById(`inputBuscador`)
+let searchBtn = document.getElementById(`searchBtn`)
+let producto = document.getElementById(`producto`)
+
+
+
+searchBtn.addEventListener((`click`),()=>{
+    let busqueda = producto.value.replace(/ /g,"-")
+    let url = `https://www.lacomiqueria.com.ar/search/?q=`+busqueda
+    console.log(url)
+    console.log(producto.value)
+    const ventana = window.open(
+        url,
+        'popUpWindow','height=838,width=684,left=500,top=200,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no,status=yes'
+        )
+        if(!ventana || ventana.closed || typeof ventana.closed=='undefined') 
+        { 
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Ventana emergente bloqueada',
+              })
+        }
+})
+
+
+//ACA VA EL CODIGO PARA SCANEAR Y SACAR LAS IMAGENES DE LA WEB LACOMIQUERIA
+
 
 
 //en este array se van a guardar los objetos. Cada objeto es un producto.
@@ -79,6 +107,7 @@ function varciarArray (array){
     }
     else {
     const arrayRecuperado = JSON.parse(localStorage.getItem('productos'))
+    arrayProductos.reverse()
     const arrayNuevo = arrayProductos.concat(arrayRecuperado)
     localStorage.setItem(`productos`, JSON.stringify(arrayNuevo))
     console.log(arrayProductos)
@@ -100,7 +129,7 @@ function varciarArray (array){
  //formulario que va a proporcionar los datos para cada objeto mediante un evento submit.
 formulario.addEventListener("submit", (e)=> {
     e.preventDefault();
-    let producto = document.getElementById(`producto`)
+    producto = document.getElementById(`producto`)
     let precio = document.getElementById(`precio`)
     let imagen = document.getElementById(`imagen`)
 //aca tengo que poner un verificador de entradas con alerta
@@ -112,7 +141,7 @@ formulario.addEventListener("submit", (e)=> {
             showConfirmButton: false,
             timer: 1500
         })
-//Si los datos son correctos, primeramente se interviene el doc creando un div. Este div va a contener una card de bootstrap donde muestre datos del objeto. Es una preview de como se va a ver el producto en la tienda. Es importante que el objeto aun no esta creado, solo se capturan los datos necesarios.
+//Si los datos son correctos, primeramente se interviene el doc creando un div. giEste div va a contener una card de bootstrap donde muestre datos del objeto. Es una preview de como se va a ver el producto en la tienda. Es importante que el objeto aun no esta creado, solo se capturan los datos necesarios.
     } else {
         let manga = document.createElement(`div`)   
         let idManga = `manga-ID-${idProducto}`
