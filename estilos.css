@@ -10,18 +10,58 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
+body {
+    background-color: rgba(255, 7, 7, 0.863);
+    background-image: url(fondo2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.aTienda {
+    color: white;
+}
+
+.botones {
+    display: flex;
+    height: 500px;
+    background-color: #ffac0600;
+    width: 100%;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+.searchBtn {
+    width: 90%;
+    height: 35px;
+    margin: 10px;
+    text-align: calc(1px);
+    background: linear-gradient(to right, #ff105f, #ffad06);
+    border-radius: 30px;
+    border: 0;
+    outline: none;
+    color: #fff;
+    cursor: pointer;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
 
 .nuevos-inputs {
     margin-left: 20px;
     display: flex;
+    height: 100%;
+    width: 20%;
+    align-items: center;
     min-height: 100vh;
     flex-direction: column;
-    gap: 30px;
-    background-color: rgba(104, 103, 103, 0.74); 
+    gap: 10px;
+    padding-top: 10px;
+    background-color: rgba(248, 28, 28, 0.699);
 }
 .inputbox {
     position: relative;
-    width: 250px;
+    width: 90%;
 }
 .inputbox input {
     width: 100%;
@@ -35,11 +75,12 @@
 }
 .inputbox span {
     position: absolute;
+    top: 0;
     left: 0;
     padding: 10px;
     pointer-events: none;
     font-size: 1em;
-    color: rgba(255, 255, 255, 0.25); 
+    color: rgba(255, 6, 6, 0); 
     text-transform: uppercase;
     transition: 0.5s;
 }
@@ -54,61 +95,45 @@
 }
 
 
-.nav-container {
-    background-color: red;
-    padding: 10px;
-}
-.input-producto  {
-    margin-left: 10px;
-    margin-right: 10px;
-}
-.searchBtn {
-    width: 207px;
-    margin-top: 3px;
-    margin-left: 10px;
-    margin-right: 10px;
-}
-.btn-primary {
-    margin-left: 10px;
-    margin-right: 10px;
-}
 .container {
-    background-color: aqua;
+    width: 200px;
+    height: 100vh;
+    background-color: rgba(10, 10, 10, 0.349);
+    padding: 10px;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    
 }
+
+
+
+.padre{
+    display: flex;
+}
+/*.container {
+    background-color: rgb(231, 24, 24);
+    width: 100%;
+    height: 100%;
+    justify-content: space-around;
+}*/
 
 .listador-admin {
-    background-color: aqua;
-    display: flex;
-    flex-wrap: wrap;
-}
-.form {
-    display:flex
+    background-color: rgba(255, 255, 255, 0);
 }
 
-.productos-tienda {
-    background-color: bisque;
-}
+
+
 .input-producto {
     text-transform: uppercase;
 }
-.card-tienda {
+.card {
     margin: 7px;
+    border-color: black;
+    border-style: solid;
+    border-width: 5px;
+    box-shadow: 10px 5px 5px rgb(27, 27, 27);
 }
 .card-text {
     text-transform: uppercase;
 }
-.link-tienda {
-    display: flex;
-    padding: 3px;
-    margin: 3px;
-    background-color: rgb(87, 205, 241);
-}
-.link-imagenes {
-    display: flex;
-    padding: 3px;
-    margin: 3px;
-    background-color: rgb(236, 132, 3);
-}
+
+

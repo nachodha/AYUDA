@@ -35,10 +35,6 @@ searchBtn.addEventListener((`click`),()=>{
               })
         }
 })
-//ok
-
-
-
 //en este array se van a guardar los objetos. Cada objeto es un producto.
 let arrayProductos = []
 console.log(Swal)
@@ -126,6 +122,7 @@ function varciarArray (array){
  //formulario que va a proporcionar los datos para cada objeto mediante un evento submit.
 formulario.addEventListener("submit", (e)=> {
     e.preventDefault();
+    console.log(producto.value)
     producto = document.getElementById(`producto`)
     let precio = document.getElementById(`precio`)
     let imagen = document.getElementById(`imagen`)
@@ -145,7 +142,7 @@ formulario.addEventListener("submit", (e)=> {
         manga.setAttribute("id", idManga)
         manga.setAttribute("class", `d-inline-flex p-2`)
         listador.prepend(manga)
-        manga.innerHTML =  `<div class="card" style="width: 18rem;">
+        manga.innerHTML =  `<div class="card" style="width: 13rem;">
         <img src="${imagen.value}" class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="precio">$${precio.value}</h5>
