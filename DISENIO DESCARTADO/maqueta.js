@@ -1,22 +1,55 @@
-console.log (`aloja`)
-/*EL PROGRAMA TIENE DOS PARTES. UNA SIMULACION DE BACKEND DONDE EL ADMIN CARGA PRODUCTOS. CADA PRODUCTO ES UN OBJETO, CADA OBJETO SE GUARDA EN UN ARRAY. LA IDEA ES QUE ESE ARRAY SE ALMACENE EN EL STORAGE Y LUEGO SE DESPLIEGUE COMO PRODUCTOS A LA VENTA EN OTRO HTML DEL MISMO NAVEGADOR. ESTO ES SOLO UNA SIMULACION DE BACKEND-FRONTEND EN UN MARKETPLACE, PARA QUE FUNCIONE REALMENTE SERIA NECESARIA GUARDAR LOS DATOS EN UNA BASE DE DATOS REAL   */
+//ACA LAS FUNCIONES DEL FORMULARIO
+let form1 = document.getElementById(`form1`)
+    let form2 = document.getElementById(`form2`)
+    let form3 = document.getElementById(`form3`)
 
+    let next1 = document.getElementById(`next1`)
+    let next2 = document.getElementById(`next2`)
+    
+    let volver1 = document.getElementById(`volver1`)
+    let volver2 = document.getElementById(`volver2`)
 
-// el idProducto me va a servir para crear el ID de los objetos tags de HTML, y a su vez asigna un ID numerico a los objetos
+    let progress = document.getElementById(`progress`)
+
+    next1.onclick = function (){
+        console.log(`click`)
+        form1.style.left = "-450px";  
+        form2.style.left = "40px"; 
+        progress.style.width = "240px"
+    }
+    volver1.onclick = function (){
+        console.log(`click`)
+        form1.style.left = "40px";  
+        form2.style.left = "450px"; 
+        progress.style.width = "120px"
+    }
+    next2.onclick = function (){
+        console.log(`click`)
+        form2.style.left = "-450px";  
+        form3.style.left = "40px"; 
+        progress.style.width = "360px"
+    }
+    volver2.onclick = function (){
+        console.log(`click`)
+        form2.style.left = "40px";  
+        form3.style.left = "450px"; 
+        progress.style.width = "240px"
+    }
+
+//ACA VA LA CAPTURA DE CATOS
 let idProducto = 0
 
-let contenido = document.getElementById(`contenido`)
-let listador = document.getElementById(`listador`)
-let formulario = document.getElementById(`formulario`)
-let actualizar = document.getElementById(`boton-actualizar`)
-let productosTienda = document.getElementById(`productos-tienda`)
-let borrarTienda = document.getElementById(`boton-reinicio`)
-let buscadorImagen = document.getElementById(`inputBuscador`)
-let searchBtn = document.getElementById(`searchBtn`)
-let producto = document.getElementById(`producto`)
+let contenido = document.getElementById(`contenido`) //ok
+let formulario = document.getElementById(`formulario`) //ok
+let actualizar = document.getElementById(`boton-actualizar`) //OK
+/*let productosTienda = document.getElementById(`productos-tienda`) NO UTILIZADO, PARECE DEL MARKETPLACE */
+let borrarTienda = document.getElementById(`boton-reinicio`) //OK
+/*let buscadorImagen = document.getElementById(`inputBuscador`) NO UTILIZADO*/
+let searchBtn = document.getElementById(`searchBtn`) //OK
+let producto = document.getElementById(`producto`) //ok
+let arrayProductos = []
 
-
-
+//EVENTO PARA BUSCAR IMAGEN EN LA WEB AL CLICKEAR EL BOTON
 searchBtn.addEventListener((`click`),()=>{
     let busqueda = producto.value.replace(/ /g,"+")
     let url = `https://www.elektracomics.com.ar/search/?q=`+busqueda
@@ -35,15 +68,15 @@ searchBtn.addEventListener((`click`),()=>{
               })
         }
 })
-//ok
+//FUNCIONES
+function varciarArray (array){
+    console.log(`se esta borrando el array`+ array)
+    return array.length = 0
+}
 
+//CONSTRUCTOR
 
-
-//en este array se van a guardar los objetos. Cada objeto es un producto.
-let arrayProductos = []
-console.log(Swal)
-//constructor de objetos
- class productos {
+class productos {
     constructor (nombre, precio, imagen, productoId) {
         this.nombre = nombre
         this.precio = precio
@@ -51,79 +84,69 @@ console.log(Swal)
         this.productoId = productoId
     }
  }
- if(typeof(productosTienda) != 'undefined' && productosTienda != null){
-    console.log('Existe en la pagina');
-} else{
-    console.log('No existe en la pagina');
-}
 
-function varciarArray (array){
-    console.log(`se esta borrando el array`+ array)
-    return array.length = 0
-}
  //ESTE EVENTO ALMACENA LOS PRODUCTOS QUE VAN A IR A LA TIENDA EN EL STORAGE. PERO SI YA EXISTE UN ARRAY GUARDADO, LO RECUPERA, LO FUSIONA CON EL QUE SE ESTA CREANDO Y LO DEVUELVE AL STORAGE
-    borrarTienda.addEventListener (`click`,()=>{
-        Swal.fire({
-            title: 'Estas segur@?',
-            text: "Estas por borrar todos los productos de la tienda.",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Si, borralos'
-          }).then((result) => {
-            if (result.isConfirmed) {
-                localStorage.clear()
-                Swal.fire(
-                'Productos borrados!',
-                'La tienda ahora esta vacia',
-                'success'
-              )
-            }
-          })
-    })
-    actualizar.addEventListener(`click`,()=>{
-    if (arrayProductos.length == 0){
-        Swal.fire({
-            position: 'center',
-            icon: 'error',
-            title: 'No hay productos agregados',
-            showConfirmButton: false,
-            timer: 1500
-          })
-    } else if(localStorage.getItem(`productos`)=== null){
-    localStorage.setItem(`productos`, JSON.stringify(arrayProductos),
-    console.log(arrayProductos))
+ borrarTienda.addEventListener (`click`,()=>{
     Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'Tienda actualizada',
-            showConfirmButton: false,
-            timer: 1500
+        title: 'Estas segur@?',
+        text: "Estas por borrar todos los productos de la tienda.",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, borralos'
+      }).then((result) => {
+        if (result.isConfirmed) {
+            localStorage.clear()
+            Swal.fire(
+            'Productos borrados!',
+            'La tienda ahora esta vacia',
+            'success'
+          )
+        }
       })
-    }
-    else {
-    const arrayRecuperado = JSON.parse(localStorage.getItem('productos'))
-    arrayProductos.reverse()
-    const arrayNuevo = arrayProductos.concat(arrayRecuperado)
-    localStorage.setItem(`productos`, JSON.stringify(arrayNuevo))
-    console.log(arrayProductos)
-    /*arrayProductos.forEach((el)=>{
-    let i = arrayProductos.indexOf(el)
-    arrayProductos.splice(i,1)
-    })*/Swal.fire({
+})
+actualizar.addEventListener(`click`,()=>{
+if (arrayProductos.length == 0){
+    Swal.fire({
+        position: 'center',
+        icon: 'error',
+        title: 'No hay productos agregados',
+        showConfirmButton: false,
+        timer: 1500
+      })
+} else if(localStorage.getItem(`productos`)=== null){
+localStorage.setItem(`productos`, JSON.stringify(arrayProductos),
+console.log(arrayProductos))
+Swal.fire({
         position: 'center',
         icon: 'success',
         title: 'Tienda actualizada',
         showConfirmButton: false,
         timer: 1500
-      })}
-    while (listador.firstChild) {
-        listador.removeChild(listador.lastChild);
-      }
-    varciarArray(arrayProductos)})
-    
- //formulario que va a proporcionar los datos para cada objeto mediante un evento submit.
+  })
+}
+else {
+const arrayRecuperado = JSON.parse(localStorage.getItem('productos'))
+arrayProductos.reverse()
+const arrayNuevo = arrayProductos.concat(arrayRecuperado)
+localStorage.setItem(`productos`, JSON.stringify(arrayNuevo))
+console.log(arrayProductos)
+/*arrayProductos.forEach((el)=>{
+let i = arrayProductos.indexOf(el)
+arrayProductos.splice(i,1)
+})*/Swal.fire({
+    position: 'center',
+    icon: 'success',
+    title: 'Tienda actualizada',
+    showConfirmButton: false,
+    timer: 1500
+  })}
+while (listador.firstChild) {
+    listador.removeChild(listador.lastChild);
+  }
+varciarArray(arrayProductos)})
+
 formulario.addEventListener("submit", (e)=> {
     e.preventDefault();
     producto = document.getElementById(`producto`)
@@ -165,6 +188,7 @@ formulario.addEventListener("submit", (e)=> {
         console.log(document)
     }
 } )
+
 //esta es la funcion que ensenio el profesor para eliminar sus tareas con alguna modificacion. Principalmente que ademas de eliminar la card que muestra los datos del objeto, tambien busca el indice del objeto que corresponde a esa card, y elimina el objeto del array.
 function eliminarProducto(id) {
     let identificador = `manga-ID-${id}`
@@ -175,8 +199,3 @@ function eliminarProducto(id) {
     arrayProductos.splice (i,1)
     console.log(arrayProductos)
 }
-
-/*QUE SIGUE? TENGO UN ULTIMO PROBLEMA CON LA GESTION DE ARRAYS EN EL LOCALSTORAGE
-1.- CUANDO ELIMINO UN PRODUCTO DEL ADMIN LUEGO DE HABERLO RESPALDADO EN EL STORAGE, EL PRODUCTO CONTINUA EN EL STORAGE
-2.- TENGO QUE HACER QUE CUANDO SE ELIMINA UN PRODUCTO DEL ADMIN YA RESPALDADO EN EL STORAGE, SE RECUPERE EL ARRAY DEL STORAGE, SE VACIE EL STORAGE, Y SE VUELVA A CARGAR EL ARRAY EN EL STORAGE YA SIN ESE PRODUCTO   */ 
-

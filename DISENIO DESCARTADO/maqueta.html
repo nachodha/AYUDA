@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="estilosMaqueta.css">
+    <title>MAQUETA ADMIN</title>
+</head>
+<body>
+ <div class="container" id="formulario">
+    <form id="form1">
+        <h3>CREAR PRODUCTO</h3>
+        <input type="text" placeholder="nombre del producto" id="producto"autocomplete="off" required>
+        <input type="number" placeholder="precio del producto" id="precio"autocomplete="off" required>
+
+        <div class="btn-box">
+            <button type="button" id="next1">Siguiente</button>
+        </div>
+    </form>
+
+    <form id="form2">
+        <h3>CARGAR IMAGEN</h3>
+        <input type="url" placeholder="Link de imagen" id="imagen" autocomplete="off" required>
+        <button class="searchBtn" id="searchBtn">Buscar link  en  la  web</button>
+        <div class="btn-box">
+            <button type="button" id="volver1">Volver</button>
+            <button type="button" id="next2">Siguiente</button>
+        </div>
+    </form>
+
+    <form id="form3">
+
+    <!-- LISTADOR DE CARD CREADAS, VISTA ANTES DE ACTUALIZAR TIENDA -->
+        <h3>VISTA PREVIA</h3>
+        <h5>Aca tengo que poner la vista previa de la card</h3>
+        <div class="btn-box">
+            <button type="button" id="volver2">Volver</button>
+            <button type="submit" id="cargar">Cargar</button>
+        </div>
+    </form>
+
+    <dvi class="step-row">
+        <div id="progress"></div>
+        <div class="step-col"><small>Paso 1</small></div>
+        <div class="step-col"><small>Paso 2</small></div>
+        <div class="step-col"><small>Paso 3</small></div>
+    </dvi>
+ </div>
+<!-- ACA EMPIEZA LA FUSION DE HTMLS -->
+
+    <!-- BOTON PARA ACTUALIZAR LA TIENDA -->
+    <button type="button" class="btn btn-primary btn-sm" id="boton-actualizar">ACTUALIZAR TIENDA</button>
+    <!-- PANEL DE VISTA PREVIA A ACTUALIZAR TIENDA -->
+    <div id="contenido">
+        <ul id="listador" class="justify-content-center listador-admin"></ul>
+    </div>
+    <!-- BOTON PARA VOLVER LA TIENDA A CERO (VACIA EL STORAGE) -->
+    <button type="button" class="btn btn-primary btn-sm" id="boton-reinicio">REINICIAR TIENDA</button>
+<script src="maqueta.js"></script>
+</body>
+</html>

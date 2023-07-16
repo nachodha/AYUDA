@@ -1,3 +1,59 @@
+/* ESTILOS MAQUETA */
+
+/* ESTILOS MAQUETA */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.nuevos-inputs {
+    margin-left: 20px;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    gap: 30px;
+    background-color: rgba(104, 103, 103, 0.74); 
+}
+.inputbox {
+    position: relative;
+    width: 250px;
+}
+.inputbox input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgba (255,255,255,0.25);
+    background: #1d2b3a;
+    border-radius: 5px;
+    outline: none;
+    color: #fff;
+    font-size: 1em;
+}
+.inputbox span {
+    position: absolute;
+    left: 0;
+    padding: 10px;
+    pointer-events: none;
+    font-size: 1em;
+    color: rgba(255, 255, 255, 0.25); 
+    text-transform: uppercase;
+    transition: 0.5s;
+}
+.inputbox input:valid ~ span,
+.inputbox input:focus ~ span
+{
+    color: #00dfc4;
+    transform: translateX(10px) translateY(-7px);
+    font-size: 0.65em;
+    padding: 0 10px;
+    background: #1d2b3a;
+}
+
+
 .nav-container {
     background-color: red;
     padding: 10px;
