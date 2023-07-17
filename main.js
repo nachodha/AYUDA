@@ -222,4 +222,4 @@ function eliminarProducto(id) {
     console.log(arrayProductos)
 }
 
-//PROGRAMA GUARDADO COMPLETO
+//PROGRAMA GUARDADO COMPLETO EN GIT
