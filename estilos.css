@@ -16,6 +16,10 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 }
+p {
+    text-align: center;   
+    text-justify: inter-word;
+  }
 
 .aTienda {
     color: white;
@@ -45,6 +49,15 @@ body {
 .searchBtn:hover {
     box-shadow: 0 0 1px rgb(238, 77, 77), 0 0 5px rgb(238, 77, 77), 0 0 8px rgb(238, 77, 77), 0 0 15px rgb(238, 77, 77), 0 0 30px rgb(238, 77, 77);
 }
+.ayuda {
+    background: linear-gradient(to right, #3c10ff, #62db91); 
+    box-shadow: 0 0 1px rgba(77, 93, 238, 0.5), 0 0 5px rgba(68, 33, 223, 0.562); 
+}
+.ayuda:hover {
+    box-shadow: 0 0 1px rgba(4, 67, 240, 0.445), 0 0 5px rgba(61, 25, 221, 0.493), 0 0 7px rgba(9, 85, 226, 0.432), 0 0 10px rgba(13, 35, 230, 0.473), 0 0 15px rgba(25, 54, 221, 0.493);
+}
+
+
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
   -webkit-appearance: none; 
@@ -77,6 +90,7 @@ input[type=number]::-webkit-outer-spin-button {
     color: #fff;
     font-size: 1em;
 }
+
 .inputbox span {
     position: absolute;
     top: 0;
@@ -91,7 +105,16 @@ input[type=number]::-webkit-outer-spin-button {
 .inputbox input:valid ~ span,
 .inputbox input:focus ~ span
 {
-    color: #ff9838;
+    color: #0bff0b;
+    transform: translateX(10px) translateY(-7px);
+    font-size: 0.65em;
+    padding: 0 10px;
+    background: #1d2b3a;
+}
+.inputbox input:invalid ~ span,
+.inputbox input:focus ~ span
+{
+    color: #ee6110;
     transform: translateX(10px) translateY(-7px);
     font-size: 0.65em;
     padding: 0 10px;
@@ -141,8 +164,9 @@ input[type=number]::-webkit-outer-spin-button {
 .input-producto {
     text-transform: uppercase;
     box-shadow: 0 0 1px rgb(238, 77, 77), 0 0 5px rgb(238, 77, 77); 
-    border-radius: 30px;
+    border-radius: 30px; 
 }
+
 .input-producto:hover {
     box-shadow: 0 0 1px rgb(238, 77, 77), 0 0 5px rgb(238, 77, 77), 0 0 8px rgb(238, 77, 77), 0 0 15px rgb(238, 77, 77), 0 0 30px rgb(238, 77, 77);
 }

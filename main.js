@@ -2,7 +2,7 @@ console.log (`aloja`)
 /*EL PROGRAMA TIENE DOS PARTES. UNA SIMULACION DE BACKEND DONDE EL ADMIN CARGA PRODUCTOS. CADA PRODUCTO ES UN OBJETO, CADA OBJETO SE GUARDA EN UN ARRAY. LA IDEA ES QUE ESE ARRAY SE ALMACENE EN EL STORAGE Y LUEGO SE DESPLIEGUE COMO PRODUCTOS A LA VENTA EN OTRO HTML DEL MISMO NAVEGADOR. ESTO ES SOLO UNA SIMULACION DE BACKEND-FRONTEND EN UN MARKETPLACE, PARA QUE FUNCIONE REALMENTE SERIA NECESARIA GUARDAR LOS DATOS EN UNA BASE DE DATOS REAL   */
 
 
-// el idProducto me va a servir para crear el ID de los objetos tags de HTML, y a su vez asigna un ID numerico a los objetos
+
 let idProducto = 0
 
 let contenido = document.getElementById(`contenido`)
@@ -14,8 +14,57 @@ let borrarTienda = document.getElementById(`boton-reinicio`)
 let buscadorImagen = document.getElementById(`inputBuscador`)
 let searchBtn = document.getElementById(`searchBtn`)
 let producto = document.getElementById(`producto`)
+let ayuda = document.getElementById(`boton-ayuda`)
 
+Swal.fire({
+    title: '<strong><u>Simulador backend panel</u></strong>',
+    icon: 'info',
+    iconColor: `red`,
+    grow: 'fullscreen',
+    html:
+      `<p>Carga productos, los guarda en un array y los envia al localstorage. Luego en el market.html ese storage se recupera al cargar la web y se distribuyen los productos en el marketplace</p>
+      <p><b>BOTON BUSCAR LINK:</b> Si el usuario no tiene el link web de la imagen, abre un popup con una imagen que coincide con el producto que esta intentando cargar</p>
+      <p><b>BOTON AGREGAR PRODUCTO:</b>  Agrega el producto al array (no a la tienda)</p>
+      <p><b>BOTON ACTUALIZAR TIENDA:</b>  Toma todos los productos que se estan cargando, y los envia a la tienda uniendolos a los que la tienda ya tenia cargados</p>
+      <p><b>BOTON REINICIAR TIENDA:</b> Borra todos los productos cargados en la tienda</p>
+      <p><b>BOTON LINK A TIENDA:</b> Abre la tienda en una nueva pestania y muestra todos los productos ya cargados</p>
+      <p><b>BOTON AYUDA:</b>  Abre esta referencia en cualquier momento/p>`,
+    showCloseButton: true,
+    showCancelButton: false,
+    focusConfirm: false,
+    confirmButtonText:
+      '<i class="fa fa-thumbs-up"></i> OK',
+    confirmButtonAriaLabel: 'Thumbs up, great!',
+    cancelButtonText:
+      '<i class="fa fa-thumbs-down"></i>',
+    cancelButtonAriaLabel: 'Thumbs down'
+  })
 
+  ayuda.addEventListener ((`click`),()=>{
+    Swal.fire({
+        title: '<strong><u>Simulador backend panel</u></strong>',
+        icon: 'info',
+        iconColor: `red`,
+        grow: 'fullscreen',
+        html:
+          `<p>Carga productos, los guarda en un array y los envia al localstorage. Luego en el market.html ese storage se recupera al cargar la web y se distribuyen los productos en el marketplace</p>
+          <p><b>BOTON BUSCAR LINK:</b> Si el usuario no tiene el link web de la imagen, abre un popup con una imagen que coincide con el producto que esta intentando cargar</p>
+          <p><b>BOTON AGREGAR PRODUCTO:</b>  Agrega el producto al array (no a la tienda)</p>
+          <p><b>BOTON ACTUALIZAR TIENDA:</b>  Toma todos los productos que se estan cargando, y los envia a la tienda uniendolos a los que la tienda ya tenia cargados</p>
+          <p><b>BOTON REINICIAR TIENDA:</b> Borra todos los productos cargados en la tienda</p>
+          <p><b>BOTON LINK A TIENDA:</b> Abre la tienda en una nueva pestania y muestra todos los productos ya cargados</p>
+          <p><b>BOTON AYUDA:</b>  Abre esta referencia en cualquier momento/p>`,
+        showCloseButton: true,
+        showCancelButton: false,
+        focusConfirm: false,
+        confirmButtonText:
+          '<i class="fa fa-thumbs-up"></i> OK',
+        confirmButtonAriaLabel: 'Thumbs up, great!',
+        cancelButtonText:
+          '<i class="fa fa-thumbs-down"></i>',
+        cancelButtonAriaLabel: 'Thumbs down'
+      })
+  })
 
 searchBtn.addEventListener((`click`),()=>{
     let busqueda = producto.value.replace(/ /g,"+")
@@ -173,7 +222,4 @@ function eliminarProducto(id) {
     console.log(arrayProductos)
 }
 
-/*QUE SIGUE? TENGO UN ULTIMO PROBLEMA CON LA GESTION DE ARRAYS EN EL LOCALSTORAGE
-1.- CUANDO ELIMINO UN PRODUCTO DEL ADMIN LUEGO DE HABERLO RESPALDADO EN EL STORAGE, EL PRODUCTO CONTINUA EN EL STORAGE
-2.- TENGO QUE HACER QUE CUANDO SE ELIMINA UN PRODUCTO DEL ADMIN YA RESPALDADO EN EL STORAGE, SE RECUPERE EL ARRAY DEL STORAGE, SE VACIE EL STORAGE, Y SE VUELVA A CARGAR EL ARRAY EN EL STORAGE YA SIN ESE PRODUCTO   */ 
-
+//PROGRAMA GUARDADO COMPLETO
